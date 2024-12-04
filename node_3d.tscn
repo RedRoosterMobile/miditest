@@ -1,17 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://m30x1gi5oxuf"]
+[gd_scene load_steps=7 format=3 uid="uid://m30x1gi5oxuf"]
 
 [ext_resource type="Script" path="res://midi.gd" id="1_hnrhk"]
-[ext_resource type="AudioStream" uid="uid://bj2q4g0x8f6u7" path="res://test_kick_90_new.wav" id="1_iljo7"]
-[ext_resource type="MidiResource" uid="uid://c4ltnbwtj623n" path="res://test_kick_90_new.mid" id="3_pnx63"]
+[ext_resource type="AudioStream" uid="uid://dtwilolqifcgt" path="res://mii_channel.ogg" id="1_p1ld4"]
+[ext_resource type="MidiResource" uid="uid://bbtnd4r5gkl6" path="res://mii_channel.mid" id="3_4xhw1"]
 
 [sub_resource type="Environment" id="Environment_42gw1"]
+glow_enabled = true
+glow_intensity = 5.94
+glow_bloom = 0.04
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4jyp"]
+albedo_color = Color(1, 0.545098, 0.658824, 1)
+emission_enabled = true
+emission = Color(0.678431, 0.439216, 0.760784, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_a8wuu"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_iljo7")
+stream = ExtResource("1_p1ld4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.90705, -0.421022, -0.000421525, -0.0321417, 0.0682477, 0.997151, -0.419794, 0.904479, -0.0754365, 0, 0, 0)
@@ -22,13 +30,16 @@ script = ExtResource("1_hnrhk")
 speaker = NodePath("../MeshInstance3D")
 
 [node name="MidiPlayer" type="MidiPlayer" parent="Midi"]
-midi = ExtResource("3_pnx63")
+midi = ExtResource("3_4xhw1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.94718)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.56913)
+projection = 1
+size = 4.153
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_42gw1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_w4jyp")
 mesh = SubResource("SphereMesh_a8wuu")
