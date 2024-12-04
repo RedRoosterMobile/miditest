@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://m30x1gi5oxuf"]
+
+[ext_resource type="Script" path="res://midi.gd" id="1_hnrhk"]
+[ext_resource type="AudioStream" uid="uid://bj2q4g0x8f6u7" path="res://test_kick_90_new.wav" id="1_iljo7"]
+[ext_resource type="MidiResource" uid="uid://c4ltnbwtj623n" path="res://test_kick_90_new.mid" id="3_pnx63"]
+
+[sub_resource type="Environment" id="Environment_42gw1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_a8wuu"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_iljo7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.90705, -0.421022, -0.000421525, -0.0321417, 0.0682477, 0.997151, -0.419794, 0.904479, -0.0754365, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Midi" type="Node" parent="." node_paths=PackedStringArray("speaker")]
+script = ExtResource("1_hnrhk")
+speaker = NodePath("../MeshInstance3D")
+
+[node name="MidiPlayer" type="MidiPlayer" parent="Midi"]
+midi = ExtResource("3_pnx63")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.94718)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_42gw1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_a8wuu")

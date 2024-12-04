@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.nlaha.godotmidi"
+type="MidiResource"
+uid="uid://jx6djt6ef76b"
+path="res://.godot/imported/kick_test.mid-c73ac88cd8d9a7be0e8cf3e9ea039ff2.res"
+
+[deps]
+
+source_file="res://kick_test.mid"
+dest_files=["res://.godot/imported/kick_test.mid-c73ac88cd8d9a7be0e8cf3e9ea039ff2.res"]
+
+[params]
+
