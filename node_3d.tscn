@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://m30x1gi5oxuf"]
+[gd_scene load_steps=9 format=3 uid="uid://m30x1gi5oxuf"]
 
 [ext_resource type="Script" path="res://midi.gd" id="1_hnrhk"]
 [ext_resource type="AudioStream" uid="uid://dtwilolqifcgt" path="res://mii_channel.ogg" id="1_p1ld4"]
 [ext_resource type="MidiResource" uid="uid://bbtnd4r5gkl6" path="res://mii_channel.mid" id="3_4xhw1"]
+[ext_resource type="PackedScene" uid="uid://cd76nkum5fta7" path="res://vertex painted.glb" id="4_iv3rc"]
+[ext_resource type="PackedScene" uid="uid://dcve3ujk2mk3p" path="res://vertex_painted.tscn" id="5_qd00n"]
 
 [sub_resource type="Environment" id="Environment_42gw1"]
 glow_enabled = true
@@ -43,3 +45,14 @@ environment = SubResource("Environment_42gw1")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_w4jyp")
 mesh = SubResource("SphereMesh_a8wuu")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76048, 1.00659, 0)
+text = "Ball grows when note plays
+changes y pos with pitch"
+
+[node name="vertex painted" parent="." instance=ExtResource("4_iv3rc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.52048, -1.24531, -0.412817)
+
+[node name="vertex painted2" parent="." instance=ExtResource("5_qd00n")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.07839, -1.59019, 0.202311)

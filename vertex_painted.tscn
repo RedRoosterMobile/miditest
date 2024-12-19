@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcve3ujk2mk3p"]
+
+[ext_resource type="PackedScene" uid="uid://cd76nkum5fta7" path="res://vertex painted.glb" id="1_wtpb3"]
+[ext_resource type="Shader" path="res://vertexpaint.gdshader" id="2_i1ill"]
+[ext_resource type="Texture2D" uid="uid://2sehhbjytvf8" path="res://halloweenbits_texture.png" id="3_x4soe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f8nwm"]
+render_priority = 0
+shader = ExtResource("2_i1ill")
+shader_parameter/transmission = null
+shader_parameter/sway_speed = 3.0
+shader_parameter/sway_strength = 0.05
+shader_parameter/sway_phase_len = 8.0
+shader_parameter/y_threshold = 0.95
+shader_parameter/texture_albedo = ExtResource("3_x4soe")
+
+[node name="vertex painted" instance=ExtResource("1_wtpb3")]
+
+[node name="tree_pine_orange_medium" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_f8nwm")
