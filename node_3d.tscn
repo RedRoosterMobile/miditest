@@ -29,7 +29,7 @@ shadow_enabled = true
 
 [node name="Midi" type="Node" parent="." node_paths=PackedStringArray("speaker")]
 script = ExtResource("1_hnrhk")
-speaker = NodePath("../MeshInstance3D")
+speaker = NodePath("../Ball")
 
 [node name="MidiPlayer" type="MidiPlayer" parent="Midi"]
 midi = ExtResource("3_4xhw1")
@@ -42,7 +42,7 @@ size = 4.153
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_42gw1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Ball" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_w4jyp")
 mesh = SubResource("SphereMesh_a8wuu")
 
@@ -52,7 +52,7 @@ text = "Ball grows when note plays
 changes y pos with pitch"
 
 [node name="vertex painted" parent="." instance=ExtResource("4_iv3rc")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.52048, -1.24531, -0.412817)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.66986, -1.24531, -0.412817)
 
 [node name="vertex painted2" parent="." instance=ExtResource("5_qd00n")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.07839, -1.59019, 0.202311)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.88466, 0, 0.936)
