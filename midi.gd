@@ -27,11 +27,11 @@ func init_ball_pool():
 		add_child(ball)
 		ball.visible = false
 
-func spawn_ball():
+func spawn_ball(y:float = 0.0):
 	if ball_pool.size() > 0:
 		var ball = ball_pool.pop_back()
 		ball.visible = true
-		ball.position = Vector3(-spawn_distance, 0, -spawn_distance)
+		ball.position = Vector3(-spawn_distance, y, -spawn_distance)
 		active_balls.append(ball)
 
 func recycle_ball(ball: Node3D):
@@ -83,14 +83,18 @@ func _process(delta: float) -> void:
 #@onready var mesh_instance_3d: MeshInstance3D = $"../MeshInstance3D"
 
 func my_note_callback(event:Variant, track:int):
+	
+	var spawn:bool = false
 	if (event['subtype'] == MIDI_MESSAGE_NOTE_ON):
 		target_scale = scale_on
-		spawn_ball()
+		spawn = true
 	elif (event['subtype'] == MIDI_MESSAGE_NOTE_OFF):
 		target_scale = scale_off
 	
 	var pitch:int = event['note']
 	target_y =  pitch/10.0 - 5.0
+	if spawn:
+		spawn_ball(target_y)
 	
 	var red:float = clampf((event['note']+120.0  )/255.0,0,255.0)
 	
